@@ -11,7 +11,7 @@ let category = require("../service/category");
 let router = require("express").Router();
 /**
  * 添加一个商品分类  post请求
- * url : http://localhost:portNumber
+ * url : http://localhost:portNumber/category
  * @param:  categrory  {name: string}
  * @return:  {Promise<*>}
  */
@@ -22,7 +22,7 @@ router.post("/", async (request, response) => {
 
 /**
  * 删除一个商品分类,delete请求
- * url : http://localhost:portNumber/id
+ * url : http://localhost:portNumber/category/id
  * @param: id
  */
 router.delete("/:id", async (request, response) => {
@@ -32,7 +32,7 @@ router.delete("/:id", async (request, response) => {
 
 /**
  * 修改类别  put请求
- * url : http://localhost:portNumber/id
+ * url : http://localhost:portNumber/category/id
  * @param: id
  * @category: 更新后的数据
  */
@@ -43,7 +43,7 @@ router.put("/:id", async (request, response) => {
 
 /**
  * 分页查询  get请求
- * url : http://localhost:portNumber/page
+ * url : http://localhost:portNumber/category/page
  * @param: page   number类型, 每页的页码,因为是从1开始,所以默认值为1
  * offset,偏移量,每页显示多少条数据,偏移量相应增加
  */

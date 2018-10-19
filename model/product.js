@@ -18,7 +18,7 @@ let schema = new mongoose.Schema({
     },
     stock: { //商品的库存,最小为0,默认为0
         type: Number,
-        min: 0,
+        min: [0, "库存数量必须大于等于0"],
         default: 0
     },
     category: {//商品分类的id

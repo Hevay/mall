@@ -10,7 +10,7 @@ let encryptUtil = require("../utils/encryptUtil");
 
 /**
  * 注册用户  post请求
- * url : http://localhost:portNumber
+ * url : http://localhost:portNumber/user
  * @param user = {username: "zhangsan", password: "123"}
  * @returns {Promise<void>}
  */
@@ -32,7 +32,7 @@ async function regist(user) {
 
 /**
  * 根据传入的用户名删除用户
- * delete请求 :  http://localhost:portNumber/
+ * delete请求 :  http://localhost:portNumber/user
  * @param username
  */
 async function deleteByUsername(username) {
@@ -60,7 +60,7 @@ async function isExistByUsername(username) {
 
 /**
  * 根据传入的参数修改用户资料  put请求
- * url :  http://localhost:portNumber/id
+ * url :  http://localhost:portNumber/user/id
  * @param id
  * @param user  更新后的数据,格式为: {name: "username", password: "password"}
  */
@@ -81,7 +81,7 @@ async function updateById(id, user) {
 
 /**
  * 根据用户名查找用户并返回  get请求
- * * url :  http://localhost:portNumber/username
+ * * url :  http://localhost:portNumber/user/username
  * @param username
  */
 async function findByUsername(username) {
@@ -90,7 +90,7 @@ async function findByUsername(username) {
 
 /**
  * 登录功能  post请求
- * url : https://localhost:portNumber
+ * url : https://localhost:portNumber/user
  * @param user
  */
 async function login(user) {

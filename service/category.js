@@ -9,7 +9,7 @@ let config = require("../config");
 
 /**
  * 添加一个商品分类  post请求
- * url : http://localhost:portNumber
+ * url : http://localhost:portNumber/category
  * @param:  categrory  {name: string}
  * @return:  {Promise<*>}
  */
@@ -23,7 +23,7 @@ async function addItem(category) {
 
 /**
  * 删除一个商品分类,delete请求
- * url : http://localhost:portNumber/id
+ * url : http://localhost:portNumber/category/id
  * @param: id
  */
 async function deleteById(id) {
@@ -39,7 +39,7 @@ async function deleteById(id) {
 
 /**
  * 修改类别  put请求
- * url : http://localhost:portNumber/id
+ * url : http://localhost:portNumber/category/id
  * @param: id
  * @category: 更新后的数据
  */
@@ -56,9 +56,10 @@ async function updateById(id, category) {
 
 /**
  * 分页查询  get请求
- * url : http://localhost:portNumber/page
+ * url : http://localhost:portNumber/category/page
  * @param: page   number类型, 每页的页码,因为是从1开始,所以默认值为1
  * offset,偏移量,每页显示多少条数据,偏移量相应增加
+ * @return: {Promise<*>}
  */
 async function findByPage(page = 1) {
     let offset = (page - 1) * config.PAGE_SIZE;

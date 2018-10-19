@@ -10,7 +10,7 @@ let config = require("../config");
 
 /**
  * 添加一个新的商品  post请求
- * url : http://localhost:portNumber
+ * url : http://localhost:portNumber/product
  * @param:  product  {name: string, price:string, category: id, description: xxx}
  * @return:  {Promise<*>}
  */
@@ -24,7 +24,7 @@ async function addItem(product) {
 
 /**
  * 删除一个商品,delete请求
- * url : http://localhost:portNumber/id
+ * url : http://localhost:portNumber/product/id
  * @param: id
  */
 async function deleteById(id) {
@@ -40,7 +40,7 @@ async function deleteById(id) {
 
 /**
  * 修改类别  put请求
- * url : http://localhost:portNumber/id
+ * url : http://localhost:portNumber/product/id
  * @param: id
  * @product: 更新后的数据
  */
@@ -57,22 +57,32 @@ async function updateById(id, product) {
 
 /**
  * 分页查询  get请求
- * url : http://localhost:portNumber/page
+ * url : http://localhost:portNumber/product/page
  * @param: page   number类型, 每页的页码,因为是从1开始,所以默认值为1
  * offset,偏移量,每页显示多少条数据,偏移量相应增加
+ * @return: {Promise<*>}
  */
 async function findByPage(page = 1) {
     let offset = (page - 1) * config.PAGE_SIZE;
-    let result = await Product.find().skip(offset).limit(config.PAGE_SIZE);
-    console.log(result);
-    return result;
+    return await Product.find().skip(offset).limit(config.PAGE_SIZE);
+}
+
+/**
+ * 根据id查找对应的商品 get请求
+ * url : http://localhost:portNumber/product/id
+ * @param id
+ * @return {Promise<*>}
+ */
+async function findById(id) {
+    return await Product.findOne({_id: id});
 }
 
 module.exports = {
     addItem,
     deleteById,
     updateById,
-    findByPage
+    findByPage,
+    findById
 };
 
  
