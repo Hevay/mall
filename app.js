@@ -24,6 +24,8 @@ app.use(morgan("combined"));
 app.use(express.json());
 //挂载自定义的router
 app.use("/user", require("./router/user"));
+app.use("/category", require("./router/category"));
+app.use("/product", require("./router/product"));
 
 //处理全局异常的中间件
 app.use((err, request, response, next) => {

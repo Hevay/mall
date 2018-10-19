@@ -14,7 +14,7 @@ async function testUser() {
     // console.log(user);
 
     //测试登录功能
-    let user = {username: "张三", password: "123"};
+    let user = {username: "zhansan", password: "123"};
     user = await userService.login(user);
     console.log(user);
 
