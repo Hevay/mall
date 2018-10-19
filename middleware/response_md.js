@@ -13,7 +13,7 @@ module.exports = (request, response, next) => {
             msg: "操作成功!",
             data: result
         });
-    }
+    };
 
     response.fail = (err) => {
         response.send({
@@ -21,10 +21,10 @@ module.exports = (request, response, next) => {
             msg: "操作失败",
             data: err.toString()
         });
-    }
+    };
 
     //放行
     next();
-}
+};
  
    

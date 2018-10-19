@@ -5,7 +5,7 @@
  @Date: create in 2018/10/18  19:54
  */
 
-const crypto = require('crypto')
+const crypto = require("crypto");
 
 function hash(hashName = "", data = "") {
     const hash = crypto.createHash(hashName);
@@ -14,8 +14,8 @@ function hash(hashName = "", data = "") {
 }
 
 function hmac(hashName = "", data = "", key = "") {
-    const mac = crypto.createHmac(hashName, key)
-    mac.update(data)
+    const mac = crypto.createHmac(hashName, key);
+    mac.update(data);
     return mac.digest('hex');
 }
 
@@ -52,16 +52,16 @@ function sha512Hmac(data = "", key = "") {
 }
 
 function aesEncrypt(data = "", key = "") {
-    const cipher = crypto.createCipher('aes192', key)
-    let encrypted = cipher.update(data, 'utf-8', 'hex')
-    encrypted += cipher.final('hex')
+    const cipher = crypto.createCipher('aes192', key);
+    let encrypted = cipher.update(data, 'utf-8', 'hex');
+    encrypted += cipher.final('hex');
     return encrypted;
 }
 
 function aesDecrypt(data = "", key = "") {
-    const decipher = crypto.createDecipher('aes192', key)
-    let decrypted = decipher.update(data, 'hex', 'utf-8')
-    decrypted += decipher.final('utf-8')
+    const decipher = crypto.createDecipher('aes192', key);
+    let decrypted = decipher.update(data, 'hex', 'utf-8');
+    decrypted += decipher.final('utf-8');
     return decrypted;
 }
 
@@ -78,11 +78,11 @@ function rsaDecrypt(data = "", publicKey = "") {
 }
 
 function base64Encode(data = "") {
-    return new Buffer(data, "utf-8").toString("base64")
+    return new Buffer(data, "utf-8").toString("base64");
 }
 
 function base64Decode(data = "") {
-    return new Buffer(data, "base64").toString("utf-8")
+    return new Buffer(data, "base64").toString("utf-8");
 }
 
 module.exports = {
@@ -91,6 +91,6 @@ module.exports = {
     aesEncrypt, aesDecrypt,
     rsaEncrypt, rsaDecrypt,
     base64Encode, base64Decode
-}
+};
  
    

@@ -11,7 +11,7 @@ let encryptUtil = require("../utils/encryptUtil");
 /**
  * 注册用户  post请求
  * url : http://localhost:portNumber
- * @param user  {username: "zhangsan", password: "123"}
+ * @param user = {username: "zhangsan", password: "123"}
  * @returns {Promise<void>}
  */
 async function regist(user) {
@@ -98,7 +98,7 @@ async function login(user) {
     await isExistByUsername(user.username);
     //获得传入进来的密码参数,并进行判断检查,确定传入值不为空
     let password = user.password;
-    if (password == null || password.trim().length == 0) {
+    if (password == null || password.trim().length === 0) {
         throw Error("密码不能为空!");
     }
     //将传入的密码重新进行加密,以便于dao层(也就是model)进行查找
