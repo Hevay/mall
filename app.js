@@ -19,6 +19,8 @@ let app = express();
 app.use(require("./middleware/response_md"));
 //使用日志功能
 app.use(morgan("combined"));
+app.use(require("./middleware/token_md")); //校验登录状态
+app.use(require("./middleware/permission_md"));//校验权限
 
 //解析json格式的数据
 app.use(express.json());

@@ -14,7 +14,7 @@ let encryptUtil = require("../utils/encryptUtil");
  * url : http://localhost:portNumber/user
  * @param user = {username:  "zhangsan", password: "123"}
  */
-router.post("/", async (request, response) => {
+router.post("/regist", async (request, response) => {
     let result = await user.regist(request.body);
     response.success(result);
 });
@@ -73,6 +73,7 @@ router.post("/login", async (request, response) => {
     };
     //参数1: 原文   参数2: 密钥
     let encryptData = encryptUtil.aesEncrypt(JSON.stringify(token), config.TOKEN_KEY);
+    //将加密后的token数据写回给浏览器
     response.success(encryptData);
 });
 
